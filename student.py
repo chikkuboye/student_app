@@ -23,6 +23,7 @@ while True:
         data = (name,admo,rollno,college)
         mycursor.execute(sql , data)
         mydb.commit()
+        print('data entered successfully')
     elif(choice==2):
         print('view student')
     elif(choice==3):
