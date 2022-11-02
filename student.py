@@ -81,7 +81,13 @@ while True:
         mycursor.execute(sql,data)
         mydb.commit()
     elif(choice == 7):
-        print()
+        print('Display the marks of each students')
+        sql = 'SELECT `Student_id`,`physics_mark`, `chemistry_mark`, `maths_mark` FROM `marks`'
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+        
     elif(choice==8):
         print()
     elif(choice==9):
