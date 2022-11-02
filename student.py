@@ -32,13 +32,24 @@ while True:
             print(i)
     elif(choice==3):
         print('search a student')
-        admo = input('enter the adm number you needed : ')
-        sql = 'SELECT `id`, `name`, `admno`, `rollno`, `collage` FROM `students` WHERE `admno`= '+admo
+
+        adm = input('enter the admi number u need : ')
+        sql = 'SELECT `id`, `name`, `admno`, `rollno`, `collage` FROM `students` WHERE `admno`=' +adm
+
         mycursor.execute(sql)
         result = mycursor.fetchall()
         print(result)
     elif(choice==4):
         print('update the student')
+        admo = input('enter the adminnumber to be updated : ')
+        name = input('enter the name for the update: ')
+        #admo = input('enter the adminnumber')
+        rollno = input('enter the roll no to be updated : ')
+        college = input('enter the college name to be updated : ')
+        sql = "UPDATE `students` SET `name`='"+name+"',`admno`='"+admo+"',`rollno`='"+rollno+"',`collage`='"+college+"' WHERE `admno`="+admo
+        mycursor.execute(sql)
+        mydb.commit()
+        print('Succesfully updated !!!')
     elif(choice==5):
         print('delete the student')
         admo = input('Enter the admin number to be deleting : ')
